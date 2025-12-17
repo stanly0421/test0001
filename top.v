@@ -21,7 +21,7 @@ module top(
     // Internal wires
     wire [7:0] demux_out;
     wire [2:0] encoder_y;
-    wire encoder_v;
+    wire encoder_v;  // Valid signal from encoder (not used in current design)
     wire [7:0] encoder_out;
     wire [7:0] decoder_out;
     
@@ -41,7 +41,7 @@ module top(
     );
     
     // Pad encoder output from 3-bit to 8-bit
-    assign encoder_out = {5'b00000, encoder_y};
+    assign encoder_out = {5'd0, encoder_y};
     
     // Instantiate decoder3_8e
     decoder3_8e decoder_inst (
